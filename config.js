@@ -39,8 +39,8 @@ module.exports = {
   // Endless Redirect loop, have to investigate
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
-    baseURL: "http://158.10.39.149:8080", // base url
-    failureURL: "http://158.10.39.149:8080/callback", // failure redirect url
+    baseURL: "https://funky.kaytek.org/", // base url
+    failureURL: "https://funky.kaytek.org/callback", // failure redirect url
     port: "8080", // port to run the bot on
   },
 
