@@ -40,10 +40,10 @@ jobs:
           docker buildx create --use
           docker buildx inspect --bootstrap
 
-          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:$IMAGE_TAG ./docker
+          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:$IMAGE_TAG .
 
           if [ "$GITHUB_REF" = "refs/heads/main" ]; then
-            docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:latest ./docker
+            docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:latest .
           fi
 
           docker buildx imagetools create $IMAGE_NAME:$IMAGE_TAG
