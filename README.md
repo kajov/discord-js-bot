@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/saiteja-madha"><img src="./docs/.gitbook/assets/strange.png" height="200" alt="Discord.js v14 Bot"></a>
+  <a href="https://github.com/saiteja-madha"><img src="https://media.discordapp.net/attachments/406890202892861440/1146091672191647825/NdYZ1M9cSezMgHjMIl0k--1--sqi94.jpg?width=917&height=917" height="200" alt="Discord.js v14 Bot"></a>
   <br>
    Funky Discord.js v14 Bot
   <br>
