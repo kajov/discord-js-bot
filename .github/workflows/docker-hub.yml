@@ -28,9 +28,7 @@ jobs:
 
       - name: Determine image tag
         id: tag
-        run: echo "IMAGE_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
-        env:
-          GITHUB_REF: ${{ github.ref }}
+        run: echo "IMAGE_TAG=${GITHUB_SHA::8}" >> $GITHUB_ENV
 
       - name: Build and push multi-platform Docker image
         env:
@@ -39,17 +37,13 @@ jobs:
         run: |
           docker buildx create --use
           docker buildx inspect --bootstrap
-
-          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:$IMAGE_TAG .
-
-          if [ "$GITHUB_REF" = "refs/heads/main" ]; then
-            docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:latest .
+          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v8 -t $IMAGE_NAME:$IMAGE_TAG .
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v8 -t $IMAGE_NAME:latest .
           fi
-
           docker buildx imagetools create $IMAGE_NAME:$IMAGE_TAG
           docker buildx imagetools inspect $IMAGE_NAME:$IMAGE_TAG
-
-          if [ "$GITHUB_REF" = "refs/heads/main" ]; then
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             docker buildx imagetools push $IMAGE_NAME:$IMAGE_TAG
             docker buildx imagetools create $IMAGE_NAME:latest
             docker buildx imagetools inspect $IMAGE_NAME:latest
