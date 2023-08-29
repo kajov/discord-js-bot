@@ -3,7 +3,7 @@ name: Docker Build and Push (Multi-platform)
 on:
   push:
     branches:
-      - main  # Change this to your main branch name or desired trigger
+      - main
       - dev
 
 jobs:
@@ -26,18 +26,32 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Determine image tag
+        id: tag
+        run: echo "IMAGE_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+        env:
+          GITHUB_REF: ${{ github.ref }}
+
       - name: Build and push multi-platform Docker image
         env:
-          IMAGE_NAME: funky-js-bot # Change this to your desired image name
-          DOCKERFILE_PATH: ./Dockerfile  # Change this if your Dockerfile is located elsewhere
+          IMAGE_NAME: funky-js-bot  # Change this to your desired image name
+          IMAGE_TAG: ${{ env.IMAGE_TAG }}
         run: |
           docker buildx create --use
           docker buildx inspect --bootstrap
 
-          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME $DOCKERFILE_PATH
-          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:latest $DOCKERFILE_PATH
+          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:$IMAGE_TAG ./docker
 
-          docker buildx imagetools create $IMAGE_NAME:latest
-          docker buildx imagetools inspect $IMAGE_NAME:latest
+          if [ "$GITHUB_REF" = "refs/heads/main" ]; then
+            docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $IMAGE_NAME:latest ./docker
+          fi
 
-          docker buildx imagetools push $IMAGE_NAME:latest
+          docker buildx imagetools create $IMAGE_NAME:$IMAGE_TAG
+          docker buildx imagetools inspect $IMAGE_NAME:$IMAGE_TAG
+
+          if [ "$GITHUB_REF" = "refs/heads/main" ]; then
+            docker buildx imagetools push $IMAGE_NAME:$IMAGE_TAG
+            docker buildx imagetools create $IMAGE_NAME:latest
+            docker buildx imagetools inspect $IMAGE_NAME:latest
+            docker buildx imagetools push $IMAGE_NAME:latest
+          fi
