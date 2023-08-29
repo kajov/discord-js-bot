@@ -26,16 +26,17 @@
 
 ## 🔗 Resource Links
 
-- 🤖 Demo Bot: [Invite Here](https://discord.com/oauth2/authorize?client_id=1013236808353599488&permissions=397602323830&scope=bot%20applications.commands)
-- 🤝 Support Server: [Join Here](https://discord.gg/2gPy75zgbW)
-- 📂 Documentation URL: [Visit Here](https://docs.strangebot.xyz)
-- 🐳 Docker Image: [Hub](https://hub.docker.com/r/saitejamadha/discord-js-bot)
+- 🤖 Demo Bot: [Invite Here]([https://discord.com/oauth2/authorize?client_id=1013236808353599488&permissions=397602323830&scope=bot%20applications.commands](https://discord.com/api/oauth2/authorize?client_id=893896435509129236&permissions=8&redirect_uri=https%3A%2F%2Ffunky.kaytek.org%2Fapi%2Fcallback&response_type=code&scope=bot))
+- 🤝 Support Server: [Join Here](https://google.com) TBD
+- 📂 Documentation URL: [Visit Here](https://docs.strangebot.xyz) TBD Updated to Individual one
+- 🐳 Docker Image: [Hub](docker pull kajov/funky-discord-js-bot:v1.0.0-alpine)
 
 ## 📦 Prerequisites
 
 - [Node.js](https://nodejs.org/en/) v16.11.0 or higher
 - [Git](https://git-scm.com/downloads)
 - [MongoDB](https://www.mongodb.com)
+- [Lavalink](https://github.com/lavalink-devs/Lavalink)
 
 ## 🚀 Getting Started
 
@@ -51,6 +52,11 @@ npm install
 - Rename `.env.example` to `.env` and fill the values
 - Optionally edit `config.js`
 - Type `npm run start` to start the bot
+
+- Or launch all programs with Docker Compose
+```
+dcoker compose up -d
+```
 
 If you need any additional help, make sure to read our guides [here](docs/additional/installation.md)
 
@@ -111,7 +117,7 @@ If you need any additional help, make sure to read our guides [here](docs/additi
 
 - **Levelling** Track your server's activity with a level system
 - **Leaderboards** See who is the most active user in your server
-- **Customizable System** Configure the levelup message, rank cards to your liking
+- **Customizable System** Configure the level-up message, rank cards to your liking
 
 ### 🙋‍♂️ **Suggestions:**
 
@@ -150,8 +156,4 @@ If you need any additional help, make sure to read our guides [here](docs/additi
 
 <br>
 
-<h1 align="center"> 🤝 Contributing 🤝 </h1>
-
-- Special thanks to [@Androzz](https://github.com/Androz2091/AtlantaBot) for the [dashboard](https://github.com/Androz2091/AtlantaBot) and his other cool discord bot projects
-- Feel free to [Fork](https://github.com/saiteja-madha/discord-js-bot/fork) this repository, create a feature branch and submit a pull request
-- You can keep track of all the planned features [here](https://github.com/saiteja-madha/discord-js-bot/projects) or make a request for one at our discord
+<h1 align="center"> 😸 More Updates to come 😸 </h1>
