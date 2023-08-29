@@ -43,8 +43,8 @@
 - Open the terminal and run the following commands
 
 ```
-git clone https://github.com/saiteja-madha/discord-js-bot.git
-cd discord-js-bot
+git clone https://github.com/saiteja-madha/funky-js-bot.git
+cd funky-js-bot
 npm install
 ```
 
@@ -55,7 +55,7 @@ npm install
 
 - Or launch all programs with Docker Compose
 ```
-dcoker compose up -d
+docker compose up -d
 ```
 
 If you need any additional help, make sure to read our guides [here](docs/additional/installation.md)
