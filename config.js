@@ -39,9 +39,9 @@ module.exports = {
   // Endless Redirect loop, have to investigate
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
-    baseURL: "http://127.0.0.1:8888", // base url
-    failureURL: "http://127.0.0.1:8888/callback", // failure redirect url
-    port: "8888", // port to run the bot on
+    baseURL: "http://158.10.39.149:8080", // base url
+    failureURL: "http://158.10.39.149:8080/callback", // failure redirect url
+    port: "8080", // port to run the bot on
   },
 
   ECONOMY: {
@@ -60,34 +60,34 @@ module.exports = {
     // Add any number of lavalink nodes here
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
-      // {
-      //   host: "narco.buses.rocks",
-      //   port: 2269,
-      //   password: "glasshost1984",
-      //   id: "Remote No-SSL Node 0",
-      //   secure: false,
-      // },
-      // {
-      //   host: "141.95.90.1",
-      //   port: "80",
-      //   password: "youshallnotpass",
-      //   id: "Remote No-SSL Node 1",
-      //   secure: false,
-      // },
-      // {
-      //   host: "lavalink.devamop.in",
-      //   port: 443,
-      //   password: "DevamOp",
-      //   id: "Remote SSL Secure Node 0",
-      //   secure: true
-      // },
       {
-        host: "127.0.0.1",
+        host: "lavalink-0",
         port: "2222",
-        password: "youshallnotpass",
-        id: "Local No-SLL Lava Node 0",
+        password: "someStrongPasswordHere",
+        id: "Local Lava Node 0",
         secure: false,
       },
+      // {
+      //   host: "lavalink-1",
+      //   port: "2333",
+      //   password: "someStrongPasswordHere",
+      //   id: "Local Lava Node 1",
+      //   secure: false,
+      // },
+      // {
+      //   host: "54.38.198.24",
+      //   port: "88",
+      //   password: "stonemusicgay",
+      //   id: "Stone Music Guy Node 0",
+      //   secure: false,
+      // },
+      // {
+      //   host: "54.38.198.23",
+      //   port: "88",
+      //   password: "stonemusicgay",
+      //   id: "Stone Music Guy Node 1",
+      //   secure: false,
+      // },
     ],
   },
 

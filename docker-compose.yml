@@ -1,25 +1,59 @@
 version: "4"
 
 services:
-  discord-js-bot:
-    image: saitejamadha/discord-js-bot:5.1.0
+  funky-js-bot:
+    image: kajov/funky-discord-js-bot:v1.0.0-alpine
     container_name: discord-js-bot
     restart: unless-stopped
     networks:
       - discord-js-net
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - MONGO_CONNECTION=${MONGO_CONNECTION}
+      - BOT_SECRET=${BOT_SECRET}
+      - SESSION_PASSWORD=${SESSION_PASSWORD}
+      - WEATHERSTACK_KEY=${WEATHERSTACK_KEY}
+      - STRANGE_API_KEY=${STRANGE_API_KEY}
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+      - YOUTUBE_CREDENTIALS=${YOUTUBE_CREDENTIALS}
+      - OWNER_IDS=${OWNER}
+      - GUILD_ID=${GUILD_ID}
     volumes:
       - ./config.js:/usr/src/app/config.js:ro
       - ./logs:/usr/src/app/logs:rw
+    ports:
+      - "8080:8080"
 
-  lavalink:
+  lavalink-0:
     image: fredboat/lavalink:dev
-    container_name: discord-js-lavalink
-    hostname: lavalink
+    container_name: discord-js-lavalink-0
+    hostname: lavalink-0
     restart: unless-stopped
     networks:
       - discord-js-net
     volumes:
-      - ./application.yml:/opt/Lavalink/application.yml:ro
+      - ./lavalink/lavalink-0.yml:/opt/Lavalink/application.yml:ro
+      - ./lavalink/Lavalink.jar:/opt/Lavalink/Lavalink.jar
+    ports:
+      - "2222:2222"
+    expose:
+      - 2222
+
+#  lavalink-1:
+#    image: fredboat/lavalink:dev
+#    container_name: discord-js-lavalink-1
+#    hostname: lavalink-1
+#    restart: unless-stopped
+#    networks:
+#      - discord-js-net
+#    volumes:
+#      - ./lavalink/lavalink-0.yml:/opt/Lavalink/application.yml:ro
+#      - ./lavalink/Lavalink.jar:/opt/Lavalink/Lavalink.jar
+#    ports:
+#      - "2333:2333"
+#    expose:
+#      - 2333
 
   mongodb:
     image: mongo:latest
@@ -27,11 +61,12 @@ services:
     restart: unless-stopped
     networks:
       - discord-js-net
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=supersecretpassword
     volumes:
       - ./data:/data/db:rw
+    ports:
+      - "27017:27017"
+    expose:
+      - 27017
 
 networks:
   discord-js-net:
