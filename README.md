@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/saiteja-madha"><img src="https://media.discordapp.net/attachments/406890202892861440/1146091672191647825/NdYZ1M9cSezMgHjMIl0k--1--sqi94.jpg?width=917&height=917" height="200" alt="Discord.js v14 Bot"></a>
+  <a href="https://github.com/kajov"><img src="https://media.discordapp.net/attachments/406890202892861440/1146091672191647825/NdYZ1M9cSezMgHjMIl0k--1--sqi94.jpg?width=917&height=917" height="200" alt="Discord.js v14 Bot"></a>
   <br>
    Funky Discord.js v14 Bot
   <br>
@@ -43,7 +43,7 @@
 - Open the terminal and run the following commands
 
 ```
-git clone https://github.com/saiteja-madha/funky-js-bot.git
+git clone https://github.com/kajov/funky-js-bot.git
 cd funky-js-bot
 npm install
 ```

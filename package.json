@@ -13,13 +13,13 @@
     "start": "node .",
     "format": "prettier --write src"
   },
-  "homepage": "https://github.com/saiteja-madha/discord-js-bot#readme",
+  "homepage": "https://github.com/kajov/funky-js-bot#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saiteja-madha/discord-js-bot.git"
+    "url": "git+https://github.com/kajov/funky-js-bot.git"
   },
   "bugs": {
-    "url": "https://github.com/saiteja-madha/discord-js-bot/issues"
+    "url": "https://github.com/kajov/funky-js-bot/issues"
   },
   "dependencies": {
     "@lavaclient/queue": "^2.1.1",
